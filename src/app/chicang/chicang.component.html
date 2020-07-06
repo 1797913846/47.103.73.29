@@ -1,0 +1,84 @@
+<div class="navigation" *ngIf="!isJiaoyi">
+  <p class="navigation-title">资产</p>
+</div>
+<div class="progressBox" *ngIf="data1&&!isChicang">
+  <span class="p2">预警线
+    <span class="s2">{{data2}}</span>
+  </span>
+  <div id="myProgress">
+    <div id="data1">
+    </div>
+    <div id="data2">
+    </div>
+    <div id="yuan"></div>
+  </div>
+  <span class="p1">平仓线
+    <span class="s1">{{data1}}</span>
+  </span>
+  <span class="zong">总资产
+    <span class="s3">{{data3}}</span>
+  </span>
+</div>
+<div class="chedang-big-div">
+  <div class="chedang-div-active">
+    <div class="chedan">
+      <span>
+        <p class="name" style="margin-right:37px;">
+          可用资金
+        </p>
+        <div class="icon4 kyzj2"></div>
+      </span>
+      <p style="margin-right:37px;font-size:12px;color:#5A5B65;">
+        {{userInfo.ableScale | round4}}
+      </p>
+    </div>
+    <span class="chedan-line"></span>
+    <div class="chedan">
+      <span>
+        <p class="name" style="margin-right:0px;">
+          冻结资金
+        </p>
+        <div class="icon4 djzj2"></div>
+      </span>
+      <p style="margin-right:0px;font-size:12px;color:#5A5B65;">
+        {{freezaFee | round4}}
+      </p>
+    </div>
+  </div>
+  <div class="chedang-div-active">
+    <div class="chedan">
+      <span>
+        <p class="name" style="margin-right:37px;">
+          &nbsp;&nbsp;总资产
+        </p>
+        <div class="icon4 gpsz2"></div>
+      </span>
+      <p style="margin-right:37px;font-size:12px;color:#5A5B65;">
+        {{userInfo.totalScale | round4}}
+      </p>
+    </div>
+    <span class="chedan-line"></span>
+    <div class="chedan">
+      <span>
+        <p class="name" style="margin-right:0px;">
+          持仓权益
+        </p>
+        <div class="icon4 kyzj4"></div>
+      </span>
+      <p style="margin-right:0px;font-size:12px;color:#5A5B65;">
+        {{userInfo.stockScale | round4}}
+      </p>
+    </div>
+  </div>
+  <!--这里需要添加新功能-->
+  <div (click)='add(true)' class="addTBox" *ngIf="id!='noway'&&!isJiaoyi">
+    <div class="left">调整资金</div>
+    <div class="right">
+      <img src="./assets/images/right.png" alt="">
+      <span>入口</span>
+    </div>
+  </div>
+</div>
+<div [class]="overflow(isJiaoyi)" style="margin-top:-4px;">
+  <app-cclb></app-cclb>
+</div>
